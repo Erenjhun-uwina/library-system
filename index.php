@@ -53,7 +53,6 @@
         <div class="card">12</div>
 
         <div class="card">13</div>
-
         <div class="card">14</div>
 
     </div>
