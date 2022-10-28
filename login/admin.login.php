@@ -7,12 +7,13 @@
 
 <body>
 
-   <img id="logbg" src='../assets/bg.png'>
+    <img id="logbg" src='../assets/bg.png'>
 
     <form action="" method="post">
         <div class="imgcontainer">
             <img id="logo" src='../assets/logo.png'>
         </div>
+
         <div class="container">
             <input type="text" placeholder="Username" name="uname" required><br>
 
