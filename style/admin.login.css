@@ -6,27 +6,35 @@
 
 body {
 
-    background-color: blue;
+    background-color: #504e4e;
 
     }
 
 form {
 
-    background-color: rgba(255, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.316);
     margin: 10rem auto;
     text-align: center;
     border-radius: 10px;
     padding: 2rem;
-    width: 20rem;
-    height: 20rem;
+    width: 25rem;
+    height: 25rem;
     background-image: url(../bg.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
 
 }
+.container {
+
+    margin: 5rem;
+    height: 5rem;
+    
+
+}
+
 #logo {
 
-    width: 3.5rem;
+    width: 4rem;
 
 }
