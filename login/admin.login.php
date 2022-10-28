@@ -9,15 +9,13 @@
 
     <form action="" method="post">
         <div class="imgcontainer">
-            <img src=https://cdn-icons-png.flaticon.com/512/5087/5087579.png>
+            <img id="logo" src='../logo.png'>
         </div>
 
         <div class="container">
-            <label for="uname"><b>Username</b></label>
             <input type="text" placeholder="Username" name="uname" required><br>
 
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Password" name="pass" required>
+            <input type="password" placeholder="Password" name="pass" required><br>
 
             <button type="submit">Login</button>
             <label>

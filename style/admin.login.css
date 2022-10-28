@@ -7,20 +7,26 @@
 body {
 
     background-color: blue;
-    
+
+    }
+
+form {
+
+    background-color: rgba(255, 0, 0, 0.3);
+    margin: 10rem auto;
+    text-align: center;
+    border-radius: 10px;
+    padding: 2rem;
+    width: 20rem;
+    height: 20rem;
+    background-image: url(../bg.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
 }
+#logo {
 
-.form {
-
-
-}
-
-#container{
-    
-    border: none;
-    outline: none;
-    font-size: 1rem;
-    padding-left: .5rem;
+    width: 3.5rem;
 
 }
-
