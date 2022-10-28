@@ -6,7 +6,7 @@
 
 body {
 
-    background-color: #504e4e;
+    background-color: #d0a058;
 
     }
 
@@ -19,10 +19,10 @@ form {
     padding: 2rem;
     width: 20rem;
     height: 25rem;
-
     display: flex;
     justify-content: center;
     flex-direction: column;
+    box-shadow: .2rem .2rem #98743f65;
 
 }
 
