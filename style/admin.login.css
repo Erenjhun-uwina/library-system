@@ -25,10 +25,17 @@ form {
     flex-direction: column;
 
 }
+
+#loginbg {
+
+    width: 8rem;
+    position: absolute;
+
+}
+
 .container {
 
-    background-color: aqua;
-
+    background-color: none;
 }
 
 input {
@@ -36,6 +43,25 @@ input {
     margin-bottom: .5rem;
     border-radius: 5px;
     border: none;
+    font-size: .7rem;
+    overflow: hidden;
+    height: 2rem;
+    width: 15rem;
+    outline: none;
+    padding: .5rem;
+
+}
+
+button {
+
+    outline: none;
+    background-color: #5d5b5b;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    width: 3rem;
+    height: 1.5rem;
+    font-size: .7rem;
 
 }
 
