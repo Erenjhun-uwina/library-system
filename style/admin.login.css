@@ -12,29 +12,35 @@ body {
 
 form {
 
-    background-color: rgba(255, 255, 255, 0.316);
+    background-color: #dbcdb274;
     margin: 10rem auto;
     text-align: center;
     border-radius: 10px;
     padding: 2rem;
-    width: 25rem;
+    width: 20rem;
     height: 25rem;
-    background-image: url(../bg.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 
 }
 .container {
 
-    margin: 5rem;
-    height: 5rem;
-    
+    background-color: aqua;
+
+}
+
+input {
+
+    margin-bottom: .5rem;
+    border-radius: 5px;
+    border: none;
 
 }
 
 #logo {
 
-    width: 4rem;
+    width: 3rem;
 
 }
