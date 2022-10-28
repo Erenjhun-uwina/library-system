@@ -46,7 +46,13 @@ body {
     padding: 1rem;
     gap: 1rem;
     border-radius: 5px;
-
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    font-size: 1.1rem;
+    border-radius: 100%;
 }
 
 #side_nav {
@@ -76,7 +82,15 @@ body {
     display: flex;
     margin: 1.5rem;
     height: 13rem;
+}
 
+.card_con :first-child{
+    background-color: #4c4745;
+    color:#fbf5f5;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .card{
