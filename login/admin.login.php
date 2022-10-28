@@ -11,6 +11,8 @@
         <div class="imgcontainer">
             <img id="logo" src='../logo.png'>
         </div>
+        
+        <img id="logbg" src='../bg.png'>
 
         <div class="container">
             <input type="text" placeholder="Username" name="uname" required><br>
