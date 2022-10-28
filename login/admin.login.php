@@ -9,7 +9,7 @@
 
     <form action="" method="post">
         <div class="imgcontainer">
-            <img id="logo" src='../logo.png'>
+            <img id="logo" src='../assets/logo.png'>
         </div>
         
         <img id="logbg" src='../bg.png'>
