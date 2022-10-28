@@ -21,6 +21,7 @@ form {
     height: 25rem;
 
     display: flex;
+    gap: 3rem;
     justify-content: center;
     flex-direction: column;
 
