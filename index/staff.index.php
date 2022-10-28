@@ -22,8 +22,7 @@
         <p class="nav_button"><i class="fa-regular fa-envelope"></i></p>
         <p class="nav_button"><i class="fa-solid fa-ellipsis-vertical"></i></p>
     </nav>
-    <nav id="side_nav">
-        <p>Admin</p>
+    <nav id="side_nav">s
         <p>Staff</p>
         <p>User</p>
     </nav>
