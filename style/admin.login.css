@@ -1,0 +1,26 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body {
+
+    background-color: blue;
+    
+}
+
+.form {
+
+
+}
+
+#container{
+    
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding-left: .5rem;
+
+}
+
