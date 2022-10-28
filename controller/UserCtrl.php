@@ -35,17 +35,44 @@ class UserCtrl extends Model
     }
 
 
-    public function update()
+    public function update(string $fn, string $ln, string $dob, string $email, string $pass, string $country)
     {
-        $this->open();
+        try {
+            $this->open();
+            $query = $this->conn->prepare("
+            UPDATE `users` SET `FN`='[value-2]', `LN`='[value-3]', `DOB`='[value-4]', `Email`='[value-5]', `Password`='[value-6]', `Country`='[value-7]' WHERE `id` = '' "); //insert id
 
-        $this->kill();
+            $query->bind_param("ssssss", $fn, $ln, $dob, $email, $pass, $country);
+            $query->execute();
+            $last_id = $this->conn->update_id;
+
+            $this->kill();
+            return $last_id;
+        } catch (Exception $err) {
+
+            $this->kill();
+            throw $err;
+        }
     }
 
-    public function delete()
+    public function delete(string $fn, string $ln, string $dob, string $email, string $pass, string $country)
     {
-        $this->open();
-        $this->kill();
+        try {
+            $this->open();
+            $query = $this->conn->prepare("
+            DELETE FROM `users` WHERE `id` = '' "); //insert id
+
+            $query->bind_param("ssssss", $fn, $ln, $dob, $email, $pass, $country);
+            $query->execute();
+            $last_id = $this->conn->delete_id;
+
+            $this->kill();
+            return $last_id;
+        } catch (Exception $err) {
+
+            $this->kill();
+            throw $err;
+        }
     }
 
 }
