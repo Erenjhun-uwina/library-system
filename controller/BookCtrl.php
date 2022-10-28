@@ -34,15 +34,15 @@ class UserCtrl extends Model
     }
 
 
-    public function update(string $title, string $author, string $daterelease, string $genre, string $coverimg, string $publiher, string $language)
+    public function update(string $title, string $author, string $daterelease, string $genre, string $coverimg, string $publiher, string $language, $id)
     
     {
         try {
             $this->open();
             $query = $this->conn->prepare("
-            UPDATE `books` SET `title`='[value-2]',`author`='[value-3]',`date release`='[value-4]', `genre`='[value-5]', `cover img`='[value-6]',`publisher`='[value-7]', `language`='[value-8]'  WHERE `id` = '' "); //insert id
+            UPDATE `books` SET `title`=?,`author`=?,`date release`=?, `genre`=?, `cover img`=?,`publisher`=?, `language`='?  WHERE `id` = ? ");
 
-            $query->bind_param("sssssss", $title, $author, $daterelease, $genre, $coverimg, $publiher, $language);
+            $query->bind_param("sssssss", $title, $author, $daterelease, $genre, $coverimg, $publiher, $language, $id);
             $query->execute();
             $last_id = $this->conn->update_id;
 
@@ -56,20 +56,17 @@ class UserCtrl extends Model
     
     }
 
-    public function delete(string $title, string $author, string $daterelease, string $genre, string $coverimg, string $publiher, string $language)
-    
+    public function delete($id)
     {
         try {
             $this->open();
             $query = $this->conn->prepare("
-                DELETE FROM `books` WHERE  `id` = '' "); //insert id
+                DELETE FROM `books` WHERE  `id` = ? "); 
 
-            $query->bind_param("sssssss", $title, $author, $daterelease, $genre, $coverimg, $publiher, $language);
+            $query->bind_param("s", $id);
             $query->execute();
-            $last_id = $this->conn->delete_id;
-
+        
             $this->kill();
-            return $last_id;
         } catch (Exception $err) {
 
             $this->kill();
