@@ -40,7 +40,7 @@ class UserCtrl extends Model
         try {
             $this->open();
             $query = $this->conn->prepare("
-            UPDATE `users` SET `FN`='[value-2]', `LN`='[value-3]', `DOB`='[value-4]', `Email`='[value-5]', `Password`='[value-6]', `Country`='[value-7]' WHERE `id` = '' "); //insert id
+            UPDATE `users` SET `FN`=?, `LN`='[value-3]', `DOB`='[value-4]', `Email`='[value-5]', `Password`='[value-6]', `Country`='[value-7]' WHERE `id` = ? "); //insert id
 
             $query->bind_param("ssssss", $fn, $ln, $dob, $email, $pass, $country);
             $query->execute();
