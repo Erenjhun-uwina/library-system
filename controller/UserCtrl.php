@@ -9,6 +9,7 @@ spl_autoload_register(function($classname){
    include_once($class);
 });
 
+
 class UserCtrl extends Model
 {
 
