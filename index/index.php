@@ -23,8 +23,6 @@
         <p class="nav_button"><i class="fa-solid fa-ellipsis-vertical"></i></p>
     </nav>
     <nav id="side_nav">
-        <p>Admin</p>
-        <p>Staff</p>
         <p>User</p>
     </nav>
 
