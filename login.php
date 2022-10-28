@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link href="./style/login.style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
