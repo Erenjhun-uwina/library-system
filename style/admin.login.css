@@ -6,6 +6,15 @@
 
 body {
 
-    background-color: #dbcdb2;
+    background-color: red;
+}
+
+#container{
+    
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding-left: .5rem;
+
 }
 
