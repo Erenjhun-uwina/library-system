@@ -1,5 +1,4 @@
 <?php
-
 include_once("./model/Model.class.php");
 
 class UserCtrl extends Model
@@ -9,11 +8,11 @@ class UserCtrl extends Model
     {
         try {
             $this->open();
-            $query = $this->conn->prepare("
-            INSERT INTO `users`(`FN`, `LN`, `DOB`, `Email`, `Password`, `Country`) 
-            VALUES (?,?,?,?,?,?)");
 
-           
+            $query = $this->conn->prepare("
+            INSERT INTO `users`(`Id`, `FN`, `LN`, `Student_no`, `Password`, `Grade_sec`, `Email`, `Contact_no`) VALUES ([value-1],[value-2],[value-3],[value-4],[value-5],[value-6],[value-7],[value-8])
+            ");
+            
             $query->bind_param("ssssss", $fn, $ln, $dob, $email, $pass, $country);
             $query->execute();
             $last_id = $this->conn->insert_id;
