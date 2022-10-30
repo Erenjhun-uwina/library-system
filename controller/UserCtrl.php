@@ -1,5 +1,4 @@
 <?php
-
 include_once("./model/Model.class.php");
 
 class UserCtrl extends Model
