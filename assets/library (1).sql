@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 28, 2022 at 01:46 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Generation Time: Oct 30, 2022 at 12:28 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -72,18 +72,24 @@ INSERT INTO `books` (`id`, `title`, `author`, `date release`, `genre`, `cover im
 --
 
 CREATE TABLE `staffs` (
-  `id` int(10) NOT NULL,
-  `Name` varchar(50) NOT NULL,
-  `username` varchar(20) NOT NULL,
-  `password` varchar(16) NOT NULL
+  `Id` int(11) NOT NULL,
+  `FN` varchar(255) NOT NULL,
+  `LN` varchar(255) NOT NULL,
+  `Password` varchar(255) NOT NULL,
+  `Contact_no` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `staffs`
 --
 
-INSERT INTO `staffs` (`id`, `Name`, `username`, `password`) VALUES
-(1, ' James Mhico Lim', 'lim001', '1234');
+INSERT INTO `staffs` (`Id`, `FN`, `LN`, `Password`, `Contact_no`) VALUES
+(1, 'Desiree', 'Aquiatin', 'saythenameseventeen', ''),
+(2, 'Enerjhun', 'Relon', '1234567890', ''),
+(4, 'Maria Angelica Violeta', 'Agustin', 'Violet123', ''),
+(5, 'Kelly ', 'Cabasal', 'Kellykels', ''),
+(6, 'Jay Prince', 'Mangmang', 'Jay12345', ''),
+(7, 'Charley', 'Emprese', '@11211122', '');
 
 -- --------------------------------------------------------
 
@@ -92,20 +98,27 @@ INSERT INTO `staffs` (`id`, `Name`, `username`, `password`) VALUES
 --
 
 CREATE TABLE `users` (
-  `id` int(10) NOT NULL,
-  `Name` varchar(50) NOT NULL,
-  `Email` varchar(50) NOT NULL,
-  `contact #` varchar(10) NOT NULL,
-  `username` varchar(20) NOT NULL,
-  `Password` varchar(16) NOT NULL
+  `Id` int(11) NOT NULL,
+  `FN` varchar(255) NOT NULL,
+  `LN` varchar(255) NOT NULL,
+  `Student_no` varchar(15) NOT NULL,
+  `Password` varchar(255) NOT NULL,
+  `Grade_sec` varchar(50) NOT NULL,
+  `Email` varchar(250) NOT NULL,
+  `Contact_no` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `Name`, `Email`, `contact #`, `username`, `Password`) VALUES
-(1, 'Jay Prince Mangmang', 'Jayprince@gmail.com', '9672056925', 'king', 'jay12345');
+INSERT INTO `users` (`Id`, `FN`, `LN`, `Student_no`, `Password`, `Grade_sec`, `Email`, `Contact_no`) VALUES
+(1, 'Desiree', 'Aquiatin', '', 'saythenameseventeen', '', '0', ''),
+(2, 'Enerjhun', 'Relon', '', '1234567890', '', '0', ''),
+(4, 'Maria Angelica Violeta', 'Agustin', '', 'Violet123', '', '0', ''),
+(5, 'Kelly ', 'Cabasal', '', 'Kellykels', '', '0', ''),
+(6, 'Jay Prince', 'Mangmang', '', 'Jay12345', '', '0', ''),
+(7, 'Charley', 'Emprese', '', '@11211122', '', '0', '');
 
 --
 -- Indexes for dumped tables
@@ -121,13 +134,13 @@ ALTER TABLE `admin`
 -- Indexes for table `staffs`
 --
 ALTER TABLE `staffs`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`Id`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`Id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -143,13 +156,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `staffs`
 --
 ALTER TABLE `staffs`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
