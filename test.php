@@ -5,10 +5,20 @@ require_once("./controller/BookCtrl.php");
 
 
 
+ $User = new UserCtrl;
+
+//  $User -> create ("jordan", "mariano", "0975" ,"12345", "Bait 1b", "jordan@gmail.com", "0923123211");
+
+
+//  $User -> delete(10);
+
+// $User -> update("Lopezvito", "Rolly",'1234', '34567', 'bait 1b', 'rolly@gmail.com', "0992393232",'9');
 
 
 
-$Book = new BookCtrl;
+
+
+// $Book = new BookCtrl;
 // $Book -> create("The World", "LopezVito","10-10-2000", "Fantasy", "" , "Amazon Inc.", "English" );
 
 
