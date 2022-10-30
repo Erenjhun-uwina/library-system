@@ -1,8 +1,29 @@
 <?php
+
 include_once("./model/Model.class.php");
 
 class UserCtrl extends Model
 {
+
+
+    public function single_query($field,$val){
+        try{
+            $this->open();
+
+            $query = $this->conn->prepare("SELECT ? FROM `users` WHERE ? = ?");
+
+            $query->bind_param('sss',$field,$field,$val);
+            $result = $query->execute();
+            
+            return $result;
+            $this->kill();
+        }
+        catch(Exception $err){
+            
+            $this->kill();
+            throw $err;
+        }
+    }
 
     public function create(string $FN, string $LN, string $Student_no, string $Pass, string $Grade_sec, string $Email, $Contact_no)
     {
@@ -26,6 +47,7 @@ class UserCtrl extends Model
         }
     }
 
+   
 
     public function update(string $FN, string $LN, string $Student_no, string $Pass, string $Grade_sec, string $Email, $Contact_no, $id)
     {
