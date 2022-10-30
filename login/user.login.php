@@ -4,6 +4,7 @@
 <head>
     <link href="../style/admin.login.css" rel="stylesheet" type="text/css">
     <link href="../style/user.login.css" rel="stylesheet" type="text/css">
+    <script src="./js/login.js" type="javascript/text" defer></script>
 </head>
 
 <body>
