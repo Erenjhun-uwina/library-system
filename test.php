@@ -14,7 +14,6 @@ $ctrl = new UserCtrl;
 
 // $User -> update("Lopezvito", "Rolly",'1234', '34567', 'bait 1b', 'rolly@gmail.com', "0992393232",'9');
 
-<<<<<<< HEAD
 
 
 
@@ -28,7 +27,5 @@ $ctrl = new UserCtrl;
 // $Book -> update("The world ver.2", "Lim", "12-12-2020", "Fantasy"," ", "books.Inc", "English", 7);
 
 
-=======
->>>>>>> 38a2988c54c1182d011a134009a767025b0c953a
 // echo $ctrl->create("erejhun","chonggus","2003-11-29","erejhun@gmail.com","chongusss","phil");
 // echo $ctrl->delete(8);
