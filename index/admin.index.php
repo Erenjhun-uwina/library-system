@@ -92,7 +92,8 @@
 
             <h1>User Registration</h1>
             <hr>
-            <input type="text" name="fullname" placeholder="Full Name">
+            <input type="text" name="fn" placeholder="First Name">
+            <input type="text" name="ln" placeholder="Last Name">
             <input type="text" name="grade/section" placeholder="Grade/Section">
             <input type="text" name="email" placeholder="Email">
             <input type="text" name="contact number" placeholder="Contact Number">
