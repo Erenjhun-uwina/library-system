@@ -114,3 +114,28 @@ body {
     height: 100%;
     object-fit: contain;
 }
+
+.regis_form_con{
+
+    width: 100vw;
+    height: 100vh;
+    background-color: #4d4440ac;
+    position: fixed;
+    top: 0;
+}
+
+.regis_form{
+
+   
+    background:#fbf5f5;
+    padding: 1rem;
+    border-radius: 15px;
+    width: 90%;
+    height: 15rem;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}

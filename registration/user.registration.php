@@ -10,20 +10,22 @@
 </head>
 
 <body>
-
+    <section id="user_regis" class="regis_form">
     <h1>User Registration</h1>
 
-    <form action="#" method="post">
-        <p>Full name:</p>
+    <form action="" method="post">
+  
         <input type="text" name="fullname" placeholder="Full Name">
-        <p>Grade/Section:</p>
+  
         <input type="text" name="grade/section" placeholder="Grade/Section">
-        <p>Email:</p>
+
         <input type="text" name="email" placeholder="Email">
-        <p>Contact Number</p>
+
         <input type="text" name="contact number" placeholder="Contact Number">
+
         <Button type="submit">Create</Button>
     </form>
+    </section>
 </body>
 
 </html>
