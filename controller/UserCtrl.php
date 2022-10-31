@@ -1,25 +1,30 @@
 <?php
 
-include_once("./model/Model.class.php");
+include_once("../model/Model.class.php");
 
 class UserCtrl extends Model
 {
 
+  
 
-    public function single_query($field,$val){
+    public function select_user($field,$val){
         try{
             $this->open();
 
-            $query = $this->conn->prepare("SELECT ? FROM `users` WHERE ? = ?");
 
-            $query->bind_param('sss',$field,$field,$val);
-            $result = $query->execute();
-            
-            return $result;
+            $query = "SELECT * FROM `users` WHERE $field = ?";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bind_param('s',$val);
+            $stmt->execute();           
+
+            $result = $stmt->get_result();
+            $stmt->close();
             $this->kill();
+
+            return $result;
         }
         catch(Exception $err){
-            
+
             $this->kill();
             throw $err;
         }
@@ -30,12 +35,11 @@ class UserCtrl extends Model
         try {
             $this->open();
 
-            $query = $this->conn->prepare("
-            INSERT INTO `users`(`FN`, `LN`, `Student_no`, `Password`, `Grade_sec`, `Email`, `Contact_no`) VALUES (?,?,?,?,?,?,?)
-            ");
-            
-            $query->bind_param("sssssss", $FN, $LN, $Student_no ,$Pass, $Grade_sec, $Email, $Contact_no);
-            $query->execute();
+            $query = "INSERT INTO `users`(`FN`, `LN`, `Student_no`, `Password`, `Grade_sec`, `Email`, `Contact_no`) VALUES (?,?,?,?,?,?,?)";
+            $stmt = $this->conn->prepare($query);
+            $stmt ->bind_param("sssssss", $FN, $LN, $Student_no ,$Pass, $Grade_sec, $Email, $Contact_no);
+            $stmt ->execute();
+
             $last_id = $this->conn->insert_id;
 
             $this->kill();
@@ -59,7 +63,6 @@ class UserCtrl extends Model
             $query->bind_param("ssssssss", $FN, $LN, $Student_no, $Pass, $Grade_sec, $Email, $Contact_no, $id);
             $query->execute();
     
-
             $this->kill();
            
         } catch (Exception $err) {
