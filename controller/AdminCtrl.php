@@ -5,15 +5,15 @@ include_once("../model/Model.class.php");
 
 //pa edit 
 
-class UserCtrl extends Model
+class AdminCtrl extends Model
 {
 
-    public function select_user($field,$val){
+    public function select_admin($field,$val){
         try{
             $this->open();
 
 
-            $query = "SELECT * FROM `admin` WHERE $field = ?";
+            $query = "SELECT * FROM `admins` WHERE $field = ?";
             $stmt = $this->conn->prepare($query);
             $stmt->bind_param('s',$val);
             $stmt->execute();           
@@ -31,37 +31,37 @@ class UserCtrl extends Model
         }
     }
 
-    public function create(string $uname, string $pword)
-    {
-        try {
-            $this->open();
+    // public function create(string $uname, string $pword)
+    // {
+    //     try {
+    //         $this->open();
 
-            $query = "INSERT INTO `admin`('username', 'password') VALUES (?,?)";
-            $stmt = $this->conn->prepare($query);
-            $stmt ->bind_param("ss",$uname,$pword,);
-            $stmt ->execute();
+    //         $query = "INSERT INTO `admins`('username', 'password') VALUES (?,?)";
+    //         $stmt = $this->conn->prepare($query);
+    //         $stmt ->bind_param("ss",$uname,$pword,);
+    //         $stmt ->execute();
 
-            $last_id = $this->conn->insert_id;
+    //         $last_id = $this->conn->insert_id;
 
-            $this->kill();
-            return $last_id;
-        } catch (Exception $err) {
+    //         $this->kill();
+    //         return $last_id;
+    //     } catch (Exception $err) {
 
-            $this->kill();
-            throw $err;
-        }
-    }
+    //         $this->kill();
+    //         throw $err;
+    //     }
+    // }
 
    
 
-    public function update(string $uname, string $pword, $id)
+    public function update(string $uname, string $pword)
     {
         try {
             $this->open();
             $query = $this->conn->prepare("
-            UPDATE `users` SET `username`=?,`password`=?, WHERE `Id` =? "); 
+            UPDATE `admins` SET `username`=?,`password`=?, WHERE 1 "); 
 
-            $query->bind_param("sss",$uname, $pword, $id);
+            $query->bind_param("ss",$uname, $pword);
             $query->execute();
     
             $this->kill();
@@ -73,23 +73,23 @@ class UserCtrl extends Model
         }
     }
 
-    public function delete($id)
-    {
-        try {
-            $this->open();
-            $query = $this->conn->prepare("
-            DELETE FROM `users` WHERE `id` = ? "); 
-            $query->bind_param("s", $id);
-            $query->execute();
+    // public function delete($id)
+    // {
+    //     try {
+    //         $this->open();
+    //         $query = $this->conn->prepare("
+    //         DELETE FROM `admins` WHERE `id` = ? "); 
+    //         $query->bind_param("s", $id);
+    //         $query->execute();
            
 
-            $this->kill();
+    //         $this->kill();
           
-        } catch (Exception $err) {
+    //     } catch (Exception $err) {
 
-            $this->kill();
-            throw $err;
-        }
-    }
+    //         $this->kill();
+    //         throw $err;
+    //     }
+    // }
 
 }

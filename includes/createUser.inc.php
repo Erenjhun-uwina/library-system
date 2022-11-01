@@ -12,7 +12,7 @@ $connum = $_POST['contact_no'];
 
 $ctrl = new UserCtrl;
 
-$ctrl->select_user("Student_no", $studno);
+
 
 echo create();
 
