@@ -1,13 +1,6 @@
 <?php
 
-spl_autoload_register(function($classname){
-
-    $namespace = str_replace("\\","/",__NAMESPACE__);
-    $classname = str_replace("\\","/",$classname);
-    $class = (empty($namespace)?"":$namespace."/")."{$classname}.class.php";
-    echo $class;
-   include_once($class);
-});
+require_once "../model/Model.class.php";
 
 class BookCtrl extends Model
 {

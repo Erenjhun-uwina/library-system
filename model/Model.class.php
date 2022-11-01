@@ -14,8 +14,6 @@ class Model
         
        
         if ($this->conn->connect_error) return die("connnection error: " . $this->conn->connect_error);
-
-        echo "connected succes";
     }
 
     public function kill()
