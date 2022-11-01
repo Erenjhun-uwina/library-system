@@ -9,28 +9,28 @@ $pword = $_POST['Password'];
 $uname = $_POST['Username'];
 
 $ctrl = new StaffCtrl;
-
+$s = $ctrl;
 
 
 echo create();
 
 
 function is_available(){
-    global $ctrl,$uname;
+    global $s,$uname;
 
-    $result = $ctrl->select_staff("Username",$uname)->fetch_assoc();
+    $result = $s->select_staff("Username",$uname)->fetch_assoc();
     if($result) return "This Username is already registered to an accocunt";
     return true;
 }
 
 function create()
 {
-    global $ctrl,$fn, $ln, $pword, $uname;
+    global $s,$fn, $ln, $pword, $uname;
 
     $is_avail = is_available();
 
     if ($is_avail===true) {
-        $id = $ctrl->create($fn, $ln, $pword, $uname);
+        $id = $s->create($fn, $ln, $pword, $uname);
         if ($id)return "success";
     }
 

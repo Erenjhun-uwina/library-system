@@ -1,12 +1,11 @@
 <?php
 
-require_once "../model/Model.class.php";
-
-
-
+include_once("../model/Model.class.php");
 
 class BookCtrl extends Model
-{
+{   
+    public function lmao(){}
+
     public function select_book($field,$val){
         try{
             $this->open();

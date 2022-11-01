@@ -10,17 +10,17 @@ $genre = $_POST['genre'];
 $coverimg = $_POST['Cover_img'];
 $publisher = $_POST['Publisher'];
 $language = $_POST['Language'];
+
 $ctrl = new BookCtrl;
-
-
+$s = $ctrl;
 
 echo create();
 
 
 function is_available(){
-    global $ctrl,$Title;
+    global $s,$Title,$ctrl;
 
-    $result = $ctrl->select_book("Title",$Title)->fetch_assoc();
+    $result = $s->select_book("Title",$Title)->fetch_assoc();
     
     if($result) return "This Book is already added";
     return true;
