@@ -1,6 +1,4 @@
 
-
-
 let add_user = document.querySelector('#add_user');
 let add_staff = document.querySelector('#add_staff');
 let user_form_con = document.querySelector('#user_regis')
@@ -10,7 +8,7 @@ let validating = false
 
 
 //validation :: USER 
-form.addEventListener("submit",async (ev)=>{
+user_form.addEventListener("submit",async (ev)=>{
     ev.preventDefault()
 
     if (validating)return
@@ -38,7 +36,7 @@ async function register_person(form){
 }
 
 function display_error_message(){
-    
+
 }
 
 function display_regis_succes(){

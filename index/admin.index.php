@@ -26,8 +26,8 @@
 
     <nav id="side_nav">
         <div><span>Admin</span></div>
-        <div  id="add_staff"><span>Staff</span><i class="fa-solid fa-circle-plus"></i></div>
-        <div id="add_user"><span >User</span><i class="fa-solid fa-circle-plus"></i></div>
+        <div id="add_staff"><span>Staff</span><i class="fa-solid fa-circle-plus"></i></div>
+        <div id="add_user"><span>User</span><i class="fa-solid fa-circle-plus"></i></div>
     </nav>
 
     <div id="recommended_container" class="card_con">
@@ -84,9 +84,25 @@
 
     </div>
 
+    <section id="staff_regis" class="regis_form_con">
+
+        <h1>Registration Form</h1>
+        <form action="#" method="post">
+
+            <input type="text" name="First name" placeholder="First Name">
+
+            <input type="text" name="Last name" placeholder="Last Name">
+
+            <input type="text" name="username" placeholder="Username">
+
+            <input type="text" name="password" placeholder="Password">
+
+            <Button type="submit">Create</Button>
+        </form>
+    </section>
 
     <section id="user_regis" class="regis_form_con">
-        
+
 
         <form class="regis_form">
 
