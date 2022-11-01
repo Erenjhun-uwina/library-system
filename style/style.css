@@ -122,11 +122,12 @@ body {
     background-color: #4d4440ac;
     position: fixed;
     top: 0;
+    opacity:0;
+    transition: opacity .5s;
+    display: none;
 }
 
 .regis_form{
-
-   
     background:#fbf5f5;
     padding: 1rem;
     border-radius: 15px;
