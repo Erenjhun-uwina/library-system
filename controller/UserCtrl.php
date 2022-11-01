@@ -5,7 +5,7 @@ include_once("../model/Model.class.php");
 class UserCtrl extends Model
 {
 
-  
+    
 
     public function select_user($field,$val){
         try{
