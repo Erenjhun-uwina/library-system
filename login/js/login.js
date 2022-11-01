@@ -1,6 +1,5 @@
 let form = document.querySelector("#form")
 let acc_type = form.dataset.acc_type
-let submit = document.querySelector("#submit")
 let validating = false
 
 form.addEventListener("submit",async (ev)=>{
@@ -41,7 +40,6 @@ function invalid_credentials(){
     inputs.forEach(e => {
         e.style.border = "3px solid red";
     });
-
 }
 
 function goto_index(){
