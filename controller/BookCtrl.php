@@ -2,15 +2,40 @@
 
 require_once "../model/Model.class.php";
 
+
+
+
 class BookCtrl extends Model
 {
+    public function select_book($field,$val){
+        try{
+            $this->open();
+
+
+            $query = "SELECT * FROM `books` WHERE $field = ?";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bind_param('s',$val);
+            $stmt->execute();           
+
+            $result = $stmt->get_result();
+            $stmt->close();
+            $this->kill();
+
+            return $result;
+        }
+        catch(Exception $err){
+
+            $this->kill();
+            throw $err;
+        }
+    }
 
     public function create(string $title, string $author, string $daterelease, string $genre, string $coverimg, string $publiher, string $language)
     {
         try {
             $this->open();
             $query = $this->conn->prepare("
-            INSERT INTO `books`(`title`, `author`, `date release`, `genre`, `cover img`, `publisher`, `language`) 
+            INSERT INTO `books`(`Title`, `Author`, `Date_release`, `Genre`, `Cover_img`, `Publisher`, `Language`) 
             VALUES (?,?,?,?,?,?,?)");
 
             $query->bind_param("sssssss", $title, $author, $daterelease, $genre, $coverimg, $publiher, $language);
@@ -33,7 +58,7 @@ class BookCtrl extends Model
         try {
             $this->open();
             $query = $this->conn->prepare("
-            UPDATE `books` SET `title`=?,`author`=?,`date release`=?, `genre`=?, `cover img`=?,`publisher`=?, `language`=?  WHERE `id` = ? ");
+            UPDATE `books` SET `Title`=?,`Author`=?,`Date_release`=?, `Genre`=?, `Cover_img`=?,`Publisher`=?, `Language`=?  WHERE `Id` = ? ");
 
             $query->bind_param("ssssssss", $title, $author, $daterelease, $genre, $coverimg, $publiher, $language, $id);
             $query->execute();
@@ -54,7 +79,7 @@ class BookCtrl extends Model
         try {
             $this->open();
             $query = $this->conn->prepare("
-                DELETE FROM `books` WHERE  `id` = ? "); 
+                DELETE FROM `books` WHERE  `Id` = ? "); 
 
             $query->bind_param("s", $id);
             $query->execute();

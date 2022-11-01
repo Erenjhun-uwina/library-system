@@ -2,17 +2,17 @@
 
 include_once("../model/Model.class.php");
 
-class UserCtrl extends Model
+class StaffCtrl extends Model
 {
 
     
 
-    public function select_user($field,$val){
+    public function select_staff($field,$val){
         try{
             $this->open();
 
 
-            $query = "SELECT * FROM `users` WHERE $field = ?";
+            $query = "SELECT * FROM `staffs` WHERE $field = ?";
             $stmt = $this->conn->prepare($query);
             $stmt->bind_param('s',$val);
             $stmt->execute();           
@@ -30,14 +30,14 @@ class UserCtrl extends Model
         }
     }
 
-    public function create(string $FN, string $LN, string $Student_no, string $Pass, string $Grade_sec, string $Email, $Contact_no)
+    public function create(string $FN, string $LN, string $Pass, $Uname)
     {
         try {
             $this->open();
 
-            $query = "INSERT INTO `users`(`FN`, `LN`, `Student_no`, `Password`, `Grade_sec`, `Email`, `Contact_no`) VALUES (?,?,?,?,?,?,?)";
+            $query = "INSERT INTO `staffs`(`FN`, `LN`, `Password`, `Username`) VALUES (?,?,?,?)";
             $stmt = $this->conn->prepare($query);
-            $stmt ->bind_param("sssssss", $FN, $LN, $Student_no ,$Pass, $Grade_sec, $Email, $Contact_no);
+            $stmt ->bind_param("ssss", $FN, $LN ,$Pass, $Uname);
             $stmt ->execute();
 
             $last_id = $this->conn->insert_id;
@@ -53,14 +53,14 @@ class UserCtrl extends Model
 
    
 
-    public function update(string $FN, string $LN, string $Student_no, string $Pass, string $Grade_sec, string $Email, $Contact_no, $id)
+    public function update(string $FN, string $LN, string $Pass, $Uname, $id)
     {
         try {
             $this->open();
             $query = $this->conn->prepare("
-            UPDATE `users` SET `FN`=?,`LN`=?,`Student_no`=?,`Password`=?,`Grade_sec`=?,`Email`=?,`Contact_no`=? WHERE `Id` =? "); 
+            UPDATE `staffs` SET `FN`=?,`LN`=?,,`Password`=?,`Username`=? WHERE `Id` =? "); 
 
-            $query->bind_param("ssssssss", $FN, $LN, $Student_no, $Pass, $Grade_sec, $Email, $Contact_no, $id);
+            $query->bind_param("sssss", $FN, $LN, $Pass, $Uname, $id);
             $query->execute();
     
             $this->kill();
@@ -77,7 +77,7 @@ class UserCtrl extends Model
         try {
             $this->open();
             $query = $this->conn->prepare("
-            DELETE FROM `users` WHERE `id` = ? "); 
+            DELETE FROM `staffs` WHERE `id` = ? "); 
             $query->bind_param("s", $id);
             $query->execute();
            
