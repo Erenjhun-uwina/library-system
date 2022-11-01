@@ -133,7 +133,7 @@ body {
     border-radius: 15px;
     width: 90%;
     height: 15rem;
-    position: absolute;
+    position: fixed;
     margin: auto;
     top: 0;
     bottom: 0;

@@ -86,26 +86,20 @@
 
     <section id="staff_regis" class="regis_form_con">
 
-        <h1>Registration Form</h1>
-        <form action="#" method="post">
 
+        <form class="regis_form">
+            <h1>Staff Registration</h1>
+            <hr>
             <input type="text" name="First name" placeholder="First Name">
-
             <input type="text" name="Last name" placeholder="Last Name">
-
             <input type="text" name="username" placeholder="Username">
-
             <input type="text" name="password" placeholder="Password">
-
             <Button type="submit">Create</Button>
         </form>
     </section>
 
     <section id="user_regis" class="regis_form_con">
-
-
         <form class="regis_form">
-
             <h1>User Registration</h1>
             <hr>
             <input type="text" name="Studno" placeholder="Student Number">
