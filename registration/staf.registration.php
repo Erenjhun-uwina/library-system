@@ -13,8 +13,10 @@
     
     <h1>Registration Form</h1>
     <form action="#" method="post"> 
-    <p>Fullname:</p>   
-    <input type="text" name="fullname" placeholder="Full Name"> 
+    <p>First Name:</p>   
+    <input type="text" name="First name" placeholder="First Name"> 
+    <p>Last Name:</p> 
+    <input type="text" name="Last name" placeholder="Last Name"> 
     <p>Username:</p>
     <input type="text" name="username" placeholder="Username">
     <p>Password:</p>
