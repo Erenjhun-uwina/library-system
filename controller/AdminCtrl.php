@@ -13,7 +13,7 @@ class UserCtrl extends Model
             $this->open();
 
 
-            $query = "SELECT * FROM `users` WHERE $field = ?";
+            $query = "SELECT * FROM `admin` WHERE $field = ?";
             $stmt = $this->conn->prepare($query);
             $stmt->bind_param('s',$val);
             $stmt->execute();           
@@ -31,14 +31,14 @@ class UserCtrl extends Model
         }
     }
 
-    public function create(string $FN, string $LN, string $Student_no, string $Pass, string $Grade_sec, string $Email, $Contact_no)
+    public function create(string $uname, string $pword)
     {
         try {
             $this->open();
 
-            $query = "INSERT INTO `users`(`FN`, `LN`, `Student_no`, `Password`, `Grade_sec`, `Email`, `Contact_no`) VALUES (?,?,?,?,?,?,?)";
+            $query = "INSERT INTO `admin`('username', 'password') VALUES (?,?)";
             $stmt = $this->conn->prepare($query);
-            $stmt ->bind_param("sssssss", $FN, $LN, $Student_no ,$Pass, $Grade_sec, $Email, $Contact_no);
+            $stmt ->bind_param("ss",$uname,$pword,);
             $stmt ->execute();
 
             $last_id = $this->conn->insert_id;
@@ -54,14 +54,14 @@ class UserCtrl extends Model
 
    
 
-    public function update(string $FN, string $LN, string $Student_no, string $Pass, string $Grade_sec, string $Email, $Contact_no, $id)
+    public function update(string $uname, string $pword, $id)
     {
         try {
             $this->open();
             $query = $this->conn->prepare("
-            UPDATE `users` SET `FN`=?,`LN`=?,`Student_no`=?,`Password`=?,`Grade_sec`=?,`Email`=?,`Contact_no`=? WHERE `Id` =? "); 
+            UPDATE `users` SET `username`=?,`password`=?, WHERE `Id` =? "); 
 
-            $query->bind_param("ssssssss", $FN, $LN, $Student_no, $Pass, $Grade_sec, $Email, $Contact_no, $id);
+            $query->bind_param("sss",$uname, $pword, $id);
             $query->execute();
     
             $this->kill();
