@@ -84,9 +84,10 @@
 
     </div>
 
+
+    <!-- hidden sections -->
+
     <section id="staff_regis" class="regis_form_con">
-
-
         <form class="regis_form">
             <h1>Staff Registration</h1>
             <hr>

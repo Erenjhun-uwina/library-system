@@ -60,6 +60,22 @@
         <div class="card">14</div>
 
     </div>
+
+    <!-- hidden sections -->
+    
+    <section id="user_regis" class="regis_form_con">
+        <form class="regis_form">
+            <h1>User Registration</h1>
+            <hr>
+            <input type="text" name="Studno" placeholder="Student Number">
+            <input type="text" name="fn" placeholder="First Name">
+            <input type="text" name="ln" placeholder="Last Name">
+            <input type="text" name="grade/section" placeholder="Grade/Section">
+            <input type="text" name="email" placeholder="Email">
+            <input type="text" name="contact_no" placeholder="Contact Number">
+            <Button type="submit">Create</Button>
+        </form>
+    </section>
 </body>
 
 </html>
