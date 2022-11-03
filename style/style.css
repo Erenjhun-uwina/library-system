@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #dbcdb2;
+    background: linear-gradient(#dbcdb2,#7e4733);
 }
 
 #top_nav {
@@ -125,18 +125,54 @@ body {
     opacity:0;
     transition: opacity .5s;
     display: none;
+    
 }
 
 .regis_form{
-    background:#fbf5f5;
+  
+    background: white;
     padding: 1rem;
     border-radius: 15px;
-    width: 90%;
-    height: 15rem;
-    position: fixed;
-    margin: auto;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    text-align: center;
+    min-width: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.regis_form input {
+    width: 10rem;
+    height: 2rem;
+    margin:.3rem;
+    border-radius: 3px;
+    padding: .3rem;
+    border: 1px solid #4c4745;
+}
+.regis_form input:hover {
+    background-color: rgb(236, 236, 236);
+    border: 1px solid #3f3c3a;
+    outline: none;
+    
+}
+button {
+    background-color: #4c4745;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    font-size: .7rem;
+    width: 5rem;
+    height: 2rem;
+    margin: 1rem;
+    
+}
+
+button:hover {
+    background-color: #322f2e;
+}
+.regis_form h1 {
+    padding: 1rem;
+}
+
+hr {
+    margin-bottom: 1rem;
 }

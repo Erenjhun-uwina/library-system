@@ -28,35 +28,15 @@
         <div><span>Admin</span></div>
         <div id="add_staff"><span>Staff</span><i class="fa-solid fa-circle-plus"></i></div>
         <div id="add_user"><span>User</span><i class="fa-solid fa-circle-plus"></i></div>
+        <div id="add_book"><span>book</span><i class="fa-solid fa-circle-plus"></i></div>
     </nav>
 
-    <div id="recommended_container" class="card_con">
-        <div class="card"><i class="fa-solid fa-circle-plus"></i></div>
+   
+    <div id="new_container" class="card_con">
 
-        <div class="card">
-            <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1647894225i/60382749.jpg" alt="">
-        </div>
         <div class="card">
             <img src="https://i.pinimg.com/736x/4f/12/d9/4f12d987e42457b542f023f8131229fc.jpg">
         </div>
-        <div class="card">
-            <img src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781974725199/one-piece-vol-98-9781974725199_hr.jpg">
-        </div>
-        <div class="card">
-            <img src="https://cf-images.us-east-1.prod.boltdns.net/v1/static/1519050004001/000dc54e-d78a-46f2-889b-8c4f9e85dc8b/7f820796-956b-41c3-88d3-4a66cdece530/1280x720/match/image.jpg">
-        </div>
-        <div class="card">
-            <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1574739767l/48946657.jpg">
-        </div>
-        <div class="card">
-            <img src="https://kbimages1-a.akamaihd.net/a4213acf-d294-475f-9955-34a9a89b7cb2/1200/1200/False/the-little-prince-60.jpg">
-        </div>
-
-    </div>
-    <div id="new_container" class="card_con">
-
-        <div class="card"><i class="fa-solid fa-circle-plus"></i></div>
-
         <div class="card">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz_cwCZQPVsD9yt0WBcUeWHD4P9CSnnrw3Hw&usqp=CAU">
         </div>
@@ -86,15 +66,14 @@
 
 
     <!-- hidden sections -->
-
     <section id="staff_regis" class="regis_form_con">
         <form class="regis_form">
             <h1>Staff Registration</h1>
             <hr>
             <input type="text" name="First name" placeholder="First Name">
+            <input type="text" name="username" placeholder="Username"><br>
             <input type="text" name="Last name" placeholder="Last Name">
-            <input type="text" name="username" placeholder="Username">
-            <input type="text" name="password" placeholder="Password">
+            <input type="text" name="password" placeholder="Password"><br>
             <Button type="submit">Create</Button>
         </form>
     </section>
@@ -104,11 +83,30 @@
             <h1>User Registration</h1>
             <hr>
             <input type="text" name="Studno" placeholder="Student Number">
-            <input type="text" name="fn" placeholder="First Name">
+            <input type="text" name="fn" placeholder="First Name"><br>
             <input type="text" name="ln" placeholder="Last Name">
-            <input type="text" name="grade/section" placeholder="Grade/Section">
+            <input type="text" name="grade/section" placeholder="Grade/Section"><br>
             <input type="text" name="email" placeholder="Email">
-            <input type="text" name="contact_no" placeholder="Contact Number">
+            <input type="text" name="contact_no" placeholder="Contact Number"><br>
+            <Button type="submit">Create</Button>
+        </form>
+    </section>
+
+    <section id="book_regis" class="regis_form_con">
+        <form class="regis_form">
+            <h1>Add Books</h1>
+            <hr>
+
+            <!-- Title`, `Author`, `Date_release`, `Genre`, `Cover_img`, `Publisher`, `Language -->
+            
+            <input type="text" name="title" placeholder="Title">
+            <input type="text" name="author" placeholder="Author"><br>
+            <input type="text" name="date_release" placeholder="Date_release">
+            <input type="text" name="genre" placeholder="Genre"><br>
+            <label for ="img">Cover_img</label>
+            <input type="file" name="cover_img" placeholder="Cover_img" accept="image/*"><br>
+            <input type="text" name="publisher" placeholder="Publisher">
+            <input type="text" name="language" placeholder="Language"><br>
             <Button type="submit">Create</Button>
         </form>
     </section>

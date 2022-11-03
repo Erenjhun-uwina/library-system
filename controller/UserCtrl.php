@@ -1,6 +1,6 @@
 <?php
 
-include_once("../model/Model.class.php");
+require_once("../model/Model.class.php");
 
 class UserCtrl extends Model
 {

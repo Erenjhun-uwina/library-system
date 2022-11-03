@@ -16,7 +16,6 @@ $s = $ctrl;
 
 echo create();
 
-
 function is_available(){
     global $s,$Title,$ctrl;
 
