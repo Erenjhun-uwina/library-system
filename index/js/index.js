@@ -5,17 +5,18 @@ let add_book = document.querySelector('#add_book')
 
 let user_form_con = document.querySelector('#user_regis')
 let user_form = document.querySelector("#user_regis form")
-user_form.validating = false
+if (user_form) user_form.validating = false
 
 
 let staff_form_con = document.querySelector('#staff_regis')
 let staff_form = document.querySelector('#staff_regis form')
-staff_form.validating = false
+
+if (staff_form) staff_form.validating = false
 
 
 let book_form_con = document.querySelector('#book_regis')
 let book_form = document.querySelector('#book_regis form')
-book_form.validating = false
+if (book_form) book_form.validating = false
 
 
 //validation :: USER 
@@ -83,98 +84,70 @@ async function register_person(form) {
 
 function display_error_message(data) {
     user_form.reset()
-    user_form.style.border = "3px solid red"
     alert("something went wrong.\n" + data)
 }
 
 function display_regis_succes() {
     user_form.reset()
-    user_form.style.border = "3px solid green"
     alert("success")
     // user_form_con.click()
 }
 
 // //////////////////////////////////////////////////
 if (user_form) {
-    user_form.onclick = () => {
-        remove_border(user_form)
+   
+    user_form_con.addEventListener("transitionend", () => {
+        display_none(user_form_con)
+    })
+
+    add_user.onclick = () => {
+        show_form(user_form_con)
     }
-}
 
-if (staff_form) {
-    staff_form.onclick = () => {
-        remove_border(staff_form)
-    }
-}
-
-
-if (book_form) {
-    staff_form.onclick = () => {
-        remove_border(staff_form)
-    }
-}
-
-user_form_con.addEventListener("transitionend", () => {
-    display_none(user_form_con)
-})
-
-
-staff_form_con.addEventListener("transitionend", () => {
-    display_none(staff_form_con)
-})
-
-
-book_form_con.addEventListener("transitionend", () => {
-    display_none(book_form_con)
-})
-
-
-// /////////////
-
-if (user_form_con) {
-add_user.onclick = () => {
-    show_form(user_form_con)}
-}
-
-if (staff_form_con) {
-    add_staff.onclick = () => {
-        show_form(staff_form_con)
-    }
-}
-
-
-if (book_form_con) {
-    add_book.onclick = () => {
-        show_form(book_form_con)
-    }
-}
-
-
-if (user_form_con) {
     user_form_con.onclick = (ev) => {
         hide_form(user_form_con, ev)
     }
 }
 
+if (staff_form) {
+  
+    staff_form_con.addEventListener("transitionend", () => {
+        display_none(staff_form_con)
+    })
 
-if (staff_form_con) {
+    add_staff.onclick = () => {
+        show_form(staff_form_con)
+    }
+
     staff_form_con.onclick = (ev) => {
         hide_form(staff_form_con, ev)
     }
+
 }
 
-if (book_form_con) {
+
+if (book_form) {
+    
+    book_form_con.addEventListener("transitionend", () => {
+        display_none(book_form_con)
+        
+    })
+
+    add_book.onclick = () => {
+        show_form(book_form_con)
+        console.log("book click");
+    }
+
     book_form_con.onclick = (ev) => {
         hide_form(book_form_con, ev)
     }
 }
 
 
+
+
+
 //################## animation shit ###################
-function remove_border(elem) {
-    if (elem.style.border == "none") return
-    elem.style.border = "none"
-}
 
 function display_none(elem) {
     if (elem.style.opacity == "1") return
@@ -190,3 +163,12 @@ function show_form(elem) {
     elem.style.display = "table"
     elem.style.opacity = "1"
 }
+
+// 
+
+let cards = document.querySelectorAll(".card")
+
+cards.forEach(card => {
+    let src = card.children[0].src
+    card.style.setProperty("--bg", `url(${src})`)
+});
