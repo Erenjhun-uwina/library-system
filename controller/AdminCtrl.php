@@ -9,7 +9,7 @@ require_once("../model/Model.class.php");
 class AdminCtrl extends Model
 {
 
-    public function select_admin($field,$val){
+    public function select_data($field,$val){
         try{
             $this->open();
 

@@ -1,12 +1,17 @@
 <?php
 
+if (!isset($_SEESION)) {
+    session_start();
+}
+
+if (!isset($_SESSION['id']) or $_SESSION['acc_type'] != "admin") header('location:../login/admin.login.php');
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <link href="../style/style.css" rel="stylesheet" type=" text/css">
+    <link href="../style/style.css" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
     <title>Page title</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -31,8 +36,8 @@
         <div id="add_book"><span>book</span><i class="fa-solid fa-circle-plus"></i></div>
     </nav>
 
-   
-    <div id="new_container" class="card_con" >
+
+    <div id="new_container" class="card_con">
 
         <div class="card">
             <img src="https://i.pinimg.com/736x/4f/12/d9/4f12d987e42457b542f023f8131229fc.jpg">
@@ -96,15 +101,12 @@
         <form class="regis_form">
             <h1>Add Books</h1>
             <hr>
-
-            <!-- Title`, `Author`, `Date_release`, `Genre`, `Cover_img`, `Publisher`, `Language -->
-            
             <input type="text" name="title" placeholder="Title">
             <input type="text" name="author" placeholder="Author"><br>
             <input type="text" name="date_release" placeholder="Date release(yyyy-mm-dd)">
             <input type="text" name="genre" placeholder="Genre"><br>
-            <label for ="cover_img" >cover image</label>
-            <input type="file" name="cover_img"  accept="image/*"><br>
+            <label for="cover_img">cover image</label>
+            <input type="file" name="cover_img" accept="image/*"><br>
             <input type="text" name="publisher" placeholder="Publisher">
             <input type="text" name="language" placeholder="Language"><br>
             <Button type="submit">Create</Button>

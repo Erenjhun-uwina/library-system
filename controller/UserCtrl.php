@@ -7,7 +7,7 @@ class UserCtrl extends Model
 
     
 
-    public function select_user($field,$val){
+    public function select_data($field,$val){
         try{
             $this->open();
 

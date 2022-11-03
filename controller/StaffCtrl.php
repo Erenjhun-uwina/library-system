@@ -7,7 +7,7 @@ class StaffCtrl extends Model
 
     
 
-    public function select_staff($field,$val){
+    public function select_data($field,$val){
         try{
             $this->open();
 

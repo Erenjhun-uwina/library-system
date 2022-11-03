@@ -1,4 +1,13 @@
 <?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+if (!isset($_SESSION['acc_type'])) {
+    $_SESSION['acc_type'] = "";
+}
+
+if(!isset($_SESSION['id']) or !($_SESSION['acc_type'] == "staff")) header('location:../login/staff.login.php');
 
 ?>
 
@@ -67,12 +76,12 @@
         <form class="regis_form">
             <h1>User Registration</h1>
             <hr>
-            <input type="text" name="Studno" placeholder="Student Number">
-            <input type="text" name="fn" placeholder="First Name"><br>
-            <input type="text" name="ln" placeholder="Last Name">
-            <input type="text" name="grade/section" placeholder="Grade/Section"><br>
-            <input type="text" name="email" placeholder="Email">
-            <input type="text" name="contact_no" placeholder="Contact Number"><br>
+            <input type="text" name="Studno" placeholder="Student Number" pattern="([0-9]{2})-([0-9]{4,8})" autocomplete="off" required>
+            <input type="text" name="fn" placeholder="First Name" pattern="[a-z]*" required><br>
+            <input type="text" name="ln" placeholder="Last Name" pattern="[a-z]*" required>
+            <input type="text" name="grade/section" placeholder="Grade/Section" pattern="(([a-z]*)/([0-9a-z]*)" required><br>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="contact_no" placeholder="Contact Number" required><br>
             <Button type="submit">Create</Button>
         </form>
     </section>
@@ -80,16 +89,13 @@
     <section id="book_regis" class="regis_form_con">
         <form class="regis_form">
             <h1>Add Books</h1>
-            <hr>
-
-            <!-- Title`, `Author`, `Date_release`, `Genre`, `Cover_img`, `Publisher`, `Language -->
-            
+            <hr>            
             <input type="text" name="title" placeholder="Title">
             <input type="text" name="author" placeholder="Author"><br>
-            <input type="text" name="date_release" placeholder="Date_release">
+            <input type="text" name="date_release" placeholder="Date release(yyyy-mm-dd)">
             <input type="text" name="genre" placeholder="Genre"><br>
-            <label for ="img">Cover_img</label>
-            <input type="file" name="cover_img" placeholder="Cover_img" accept="image/*"><br>
+            <label for ="cover_img" >cover image</label>
+            <input type="file" name="cover_img"  accept="image/*"><br>
             <input type="text" name="publisher" placeholder="Publisher">
             <input type="text" name="language" placeholder="Language"><br>
             <Button type="submit">Create</Button>

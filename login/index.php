@@ -1,7 +1,22 @@
+<?php
+
+if (!isset($_SEESION)) {
+    session_start();
+}
+
+if (!isset($_SESSION['acc_type'])) {
+    $_SESSION['acc_type'] = "";
+}
+
+if (isset($_SESSION['id']) and $_SESSION['acc_type']=="user") {
+    header("location:../index/");
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
-
-
 
 <head>
     <link href="../style/admin.login.css" rel="stylesheet" type="text/css">
@@ -11,9 +26,9 @@
 
 <body>
 
-   <img id="logbg" src='../assets/bg.png'>
+    <img id="logbg" src='../assets/bg.png'>
 
-    <form id="form" action="" method="post" data-acc_type="user">
+    <form id="form" data-acc_type="user">
         <div class="imgcontainer">
             <img id="logo" src='../assets/logo.png'>
         </div>
@@ -22,7 +37,7 @@
             <input type="text" placeholder="Username" name="user" required><br>
             <input type="password" placeholder="Password" name="pass" required><br>
             <button id="submit" type="submit">Login</button>
-            <label>
+
         </div>
     </form>
 

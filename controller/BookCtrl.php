@@ -6,7 +6,7 @@ class BookCtrl extends Model
 {   
  
 
-    public function select_book($field,$val){
+    public function select_data($field,$val){
         try{
             $this->open();
 

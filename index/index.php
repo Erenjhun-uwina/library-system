@@ -1,4 +1,13 @@
 <?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+if (!isset($_SESSION['acc_type'])) {
+    $_SESSION['acc_type'] = "";
+}
+
+if(!isset($_SESSION['id']) or !($_SESSION['acc_type'] == "user")) header('location:../login/');
 
 ?>
 
