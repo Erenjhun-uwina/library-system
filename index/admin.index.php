@@ -70,9 +70,9 @@
         <form class="regis_form">
             <h1>Staff Registration</h1>
             <hr>
-            <input type="text" name="First name" placeholder="First Name">
+            <input type="text" name="fn" placeholder="First Name">
             <input type="text" name="username" placeholder="Username"><br>
-            <input type="text" name="Last name" placeholder="Last Name">
+            <input type="text" name="ln" placeholder="Last Name">
             <input type="text" name="password" placeholder="Password"><br>
             <Button type="submit">Create</Button>
         </form>
@@ -85,7 +85,7 @@
             <input type="text" name="Studno" placeholder="Student Number" pattern="([0-9]{2})-([0-9]{4,8})" autocomplete="off" required>
             <input type="text" name="fn" placeholder="First Name" pattern="[a-z]*" required><br>
             <input type="text" name="ln" placeholder="Last Name" pattern="[a-z]*" required>
-            <input type="text" name="grade/section" placeholder="Grade/Section" pattern="(([a-z]*)//([0-9a-z]*)" required><br>
+            <input type="text" name="grade/section" placeholder="Grade/Section" pattern="(([a-z]*)/([0-9a-z]*)" required><br>
             <input type="email" name="email" placeholder="Email" required>
             <input type="text" name="contact_no" placeholder="Contact Number" required><br>
             <Button type="submit">Create</Button>
@@ -101,7 +101,7 @@
             
             <input type="text" name="title" placeholder="Title">
             <input type="text" name="author" placeholder="Author"><br>
-            <input type="text" name="date_release" placeholder="Date_release">
+            <input type="text" name="date_release" placeholder="Date release(yyyy-mm-dd)">
             <input type="text" name="genre" placeholder="Genre"><br>
             <label for ="cover_img" >cover image</label>
             <input type="file" name="cover_img"  accept="image/*"><br>

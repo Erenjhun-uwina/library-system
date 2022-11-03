@@ -3,10 +3,10 @@
 require_once("../controller/StaffCtrl.php");
 
 
-$fn = $_POST['Fn'];
-$ln = $_POST['Ln'];
-$pword = $_POST['Password'];
-$uname = $_POST['Username'];
+$fn = $_POST['fn'];
+$ln = $_POST['ln'];
+$pword = $_POST['password'];
+$uname = $_POST['username'];
 
 $ctrl = new StaffCtrl;
 $s = $ctrl;

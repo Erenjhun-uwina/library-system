@@ -28,8 +28,7 @@ if (user_form) {
         user_form.validating = true
 
         let fdata = new FormData(user_form);
-        fdata.append("acc_type", "user")
-        await register_person(fdata)
+        await register(fdata,'createUser')
 
         user_form.validating = false
     });
@@ -44,9 +43,12 @@ if (staff_form) {
         if (staff_form.validating) return
         staff_form.validating = true
         let fdata = new FormData(staff_form);
-        fdata.append("acc_type", "staff")
-        await register_person(fdata)
 
+        for (const data of fdata.entries()) {
+            console.log(data);
+        }
+
+        await register(fdata,'createStaff')
         staff_form.validating = false
     });
 }
@@ -60,8 +62,7 @@ if (book_form) {
         if (book_form.validating) return
         book_form.validating = true
         let fdata = new FormData(book_form);
-        fdata.append("acc_type", "book")
-        await register_person(fdata)
+        await register(fdata,'addBook')
 
         book_form.validating = false
     });
@@ -69,9 +70,9 @@ if (book_form) {
 
 // #################### EVENTS #############################
 
-async function register_person(form) {
+async function register(form,path) {
 
-    let data = await fetch("../includes/createUser.inc.php", {
+    let data = await fetch(`../includes/${path}.inc.php`, {
         method: "post",
         body: form
     });
@@ -84,11 +85,15 @@ async function register_person(form) {
 
 function display_error_message(data) {
     user_form.reset()
+    staff_form.reset()
+    book_form.reset()
     alert("something went wrong.\n" + data)
 }
 
 function display_regis_succes() {
     user_form.reset()
+    staff_form.reset()
+    book_form.reset()
     alert("success")
     // user_form_con.click()
 }

@@ -152,7 +152,7 @@ body {
     transform: translate(-50%,-50%);
 }
 .regis_form input {
-    width: 10rem;
+    width: 12rem;
     height: 2rem;
     margin:.3rem;
     border-radius: 3px;
