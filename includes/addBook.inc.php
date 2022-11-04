@@ -21,7 +21,7 @@ echo create();
 function is_available(){
     global $s,$title,$ctrl;
 
-    $result = $s->select_book("Title",$title)->fetch_assoc();
+    $result = $s->select_data("Title",$title)->fetch_assoc();
     
     if($result) return "This Book is already added";
     return true;
@@ -54,7 +54,6 @@ function uploadImage(){
     $new_file_name = "$title$date.$ext";
     $path = '../assets/covers';
 
-    
     move_uploaded_file($file['tmp_name'],"$path/$new_file_name");
     return $new_file_name;
 }

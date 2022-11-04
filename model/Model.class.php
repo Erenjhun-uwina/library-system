@@ -11,8 +11,6 @@ class Model
         $db_pass = "";
         $db_name = "library";
         $this->conn = new mysqli($db_server, $db_user, $db_pass, $db_name);
-        
-       
         if ($this->conn->connect_error) return die("connnection error: " . $this->conn->connect_error);
     }
 
