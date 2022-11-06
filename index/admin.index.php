@@ -2,10 +2,12 @@
 
 if (!isset($_SESSION)) {
     session_start();
-    
 }
 
 if (!isset($_SESSION['id']) or $_SESSION['acc_type'] != "admin") header('location:../login/admin.login.php');
+
+require_once("../view/AdminView.class.php");
+$view = new AdminView;
 ?>
 
 <!DOCTYPE html>
@@ -21,14 +23,24 @@ if (!isset($_SESSION['id']) or $_SESSION['acc_type'] != "admin") header('locatio
 
 <body>
     <nav id="top_nav">
-        <div id="search_con">
-            <input type="text" placeholder="search">
+
+    <div id="search_con">
+            <input id="book_search" type="text" placeholder="search" name="book_search">
+
+            <div id="search_res">
+
+            </div>
         </div>
         <p>School logo</p>
         <p class="nav_button"><i class="fa-regular fa-calendar"></i></p>
         <p class="nav_button"><i class="fa-regular fa-envelope"></i></p>
-        <p class="nav_button"><i class="fa-solid fa-ellipsis-vertical"></i></p>
-    </nav>
+        <p id="menu" class="nav_button"><i class="fa-solid fa-ellipsis-vertical"></i>
+            <div id="menu_opt_con">
+                <p id="about_us">about us</p>
+                <p id="logout">logout</p>
+                <p id="update_pass">update password</p>
+            </div>
+        </p> </nav>
 
     <nav id="side_nav">
         <div><span>Admin</span></div>
@@ -72,8 +84,19 @@ if (!isset($_SESSION['id']) or $_SESSION['acc_type'] != "admin") header('locatio
 
 
     <!-- hidden sections -->
+
+    <section id="change_pass" >
+        <form>
+            <span><?php echo $view->Username($_SESSION['id']) ?></span><br>
+            <input type="text" placeholder="Old password" name="user" required><br>
+            <input type="password" placeholder="New password" name="pass" required><br>
+            <input type="password" placeholder="Confirm password" name="pass" required><br>
+            <button id="submit" type="submit">Update</button>
+        </form>
+    </section>
+
     <section id="staff_regis" class="regis_form_con">
-        <form class="regis_form">
+        <form >
             <h1>Staff Registration</h1>
             <hr>
             <input type="text" name="fn" placeholder="First Name">
@@ -85,7 +108,7 @@ if (!isset($_SESSION['id']) or $_SESSION['acc_type'] != "admin") header('locatio
     </section>
 
     <section id="user_regis" class="regis_form_con">
-        <form class="regis_form">
+        <form >
             <h1>User Registration</h1>
             <hr>
             <input type="text" name="Studno" placeholder="Student Number" pattern="([0-9]{2})-([0-9]{4,8})" autocomplete="off" required>
@@ -99,7 +122,7 @@ if (!isset($_SESSION['id']) or $_SESSION['acc_type'] != "admin") header('locatio
     </section>
 
     <section id="book_regis" class="regis_form_con">
-        <form class="regis_form">
+        <form >
             <h1>Add Books</h1>
             <hr>
             <input type="text" name="title" placeholder="Title">
