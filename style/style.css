@@ -41,22 +41,27 @@ body {
 
 #search_res {
     position: absolute;
-    background: #dbcdb2;
+    background: white;
     z-index: 3;
     width: 93%;
     left: 0%;
     right: 0%;
     margin: auto;
+    border-radius: 3px;
 }
 
 #search_res p {
-    background: #fbf5f5;
-    margin: .3rem 0;
+    background: white;
+    margin: .1rem 0;
     padding: .5rem;
     color: #322f2e;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+#search_res p:hover{
+    background-color: rgb(236, 236, 236);
 }
 
 .nav_button {
@@ -224,13 +229,18 @@ hr {
     width: 7rem;
     z-index: 3;
     position: absolute;
-    background: #7e4733;
+    background: white;
+    border-radius: 3px;
 }
-
 
 #menu_opt_con p{
     font-size: .9rem;
-    margin: .2rem 0;
+    margin: .1rem 0;
     padding: .3rem .2rem;
     background:white;
+}
+
+#menu_opt_con p:hover {
+    background-color: rgb(236, 236, 236);
+
 }
