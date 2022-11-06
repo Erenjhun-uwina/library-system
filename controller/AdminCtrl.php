@@ -13,7 +13,6 @@ class AdminCtrl extends Model
         try{
             $this->open();
 
-
             $query = "SELECT * FROM `admins` WHERE $field = ?";
             $stmt = $this->conn->prepare($query);
             $stmt->bind_param('s',$val);
@@ -26,7 +25,6 @@ class AdminCtrl extends Model
             return $result;
         }
         catch(Exception $err){
-
             $this->kill();
             throw $err;
         }

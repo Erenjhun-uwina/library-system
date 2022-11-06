@@ -2,6 +2,8 @@ let form = document.querySelector("#form")
 let acc_type = form.dataset.acc_type
 let validating = false
 
+
+
 form.addEventListener("submit",async (ev)=>{
     ev.preventDefault()
 
