@@ -14,6 +14,7 @@ class AdminCtrl extends Model
 
             $val = (gettype($val)=="array")?$val:array($val);
 
+
             $query = "SELECT * FROM `admins` WHERE $where";
             $stmt = $this->conn->prepare($query);
             

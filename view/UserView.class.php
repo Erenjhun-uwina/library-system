@@ -9,5 +9,10 @@ class UserView extends UserCtrl{
         echo $user['FN']." ".$user['LN'];
     }
 
+    public function select_data($where,$val){
+        return parent::select_data($where,$val);
+    }
+
+
     // public function 
 }

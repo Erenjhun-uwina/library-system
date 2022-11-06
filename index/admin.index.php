@@ -1,7 +1,8 @@
 <?php
 
-if (!isset($_SEESION)) {
+if (!isset($_SESSION)) {
     session_start();
+    
 }
 
 if (!isset($_SESSION['id']) or $_SESSION['acc_type'] != "admin") header('location:../login/admin.login.php');
