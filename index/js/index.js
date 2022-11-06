@@ -42,10 +42,6 @@ if (staff_form) {
         staff_form.validating = true
         let fdata = new FormData(staff_form);
 
-        for (const data of fdata.entries()) {
-            console.log(data);
-        }
-
         await register(fdata,'createStaff')
         staff_form.validating = false
     });

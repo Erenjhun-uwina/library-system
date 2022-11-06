@@ -19,6 +19,7 @@ $view = new AdminView;
     <title>Page title</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="./js/index.js" defer></script>
+    <script src="./js/change_pass.js" defer></script>
 </head>
 
 <body>
@@ -85,15 +86,15 @@ $view = new AdminView;
 
     <!-- hidden sections -->
 
-    <section id="change_pass" >
+    <section id="change_pass" class="regis_form_con" >
         <form>
             <span><?php echo $view->Username($_SESSION['id']) ?></span><br>
-            <input type="text" placeholder="Old password" name="user" required><br>
-            <input type="password" placeholder="New password" name="pass" required><br>
+            <input type="text" placeholder="Old password" name="old_pass" required><br>
+            <input type="password" placeholder="New password" name="new_pass" required><br>
             <input type="password" placeholder="Confirm password" name="pass" required><br>
-            <button id="submit" type="submit">Update</button>
+            <button type="submit">Update</button>
         </form>
-    </section>
+    </section>     
 
     <section id="staff_regis" class="regis_form_con">
         <form >
