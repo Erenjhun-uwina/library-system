@@ -13,7 +13,6 @@ let staff_form = document.querySelector('#staff_regis form')
 
 if (staff_form) staff_form.validating = false
 
-
 let book_form_con = document.querySelector('#book_regis')
 let book_form = document.querySelector('#book_regis form')
 if (book_form) book_form.validating = false
@@ -148,10 +147,6 @@ if (book_form) {
     }
 }
 
-
-
-
-
 //################## animation shit ###################
 
 function display_none(elem) {
@@ -177,3 +172,51 @@ cards.forEach(card => {
     let src = card.children[0].src
     card.style.setProperty("--bg", `url(${src})`)
 });
+
+// #########################
+
+let book_search = document.querySelector('#book_search')
+let search_res = document.querySelector('#search_res')
+
+window.addEventListener('click',()=>{
+    if (search_res.innerHTML == '') return
+    search_res.innerHTML = ''
+});
+
+book_search.addEventListener('input',async ()=>{
+    
+    let search_str = book_search.value
+
+    if(search_str == ''||search_str == ' ' || !search_str){
+        
+        search_res.innerHTML = ""
+        return
+    }
+
+    const fdata = new FormData
+    fdata.append("book_search",search_str)
+
+    let data = await fetch('../includes/bookSearch.php',
+        {
+            method:'post',
+            body:fdata
+        }
+    )
+
+    data = await data.text()
+    search_res.innerHTML = data
+    
+    console.log(search_res.children);
+
+    [...search_res.children].forEach((child)=>{
+        child.addEventListener(
+            "click",()=>book_page(child)
+        )
+    });
+});
+
+
+function book_page(el){
+    
+    location = `../book?id=${el.dataset.id}`
+}
