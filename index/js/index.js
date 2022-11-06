@@ -7,7 +7,6 @@ let user_form_con = document.querySelector('#user_regis')
 let user_form = document.querySelector("#user_regis form")
 if (user_form) user_form.validating = false
 
-
 let staff_form_con = document.querySelector('#staff_regis')
 let staff_form = document.querySelector('#staff_regis form')
 
@@ -164,8 +163,6 @@ function show_form(elem) {
     elem.style.opacity = "1"
 }
 
-// 
-
 let cards = document.querySelectorAll(".card")
 
 cards.forEach(card => {
@@ -177,12 +174,21 @@ cards.forEach(card => {
 let book_search = document.querySelector('#book_search')
 let search_res = document.querySelector('#search_res')
 
-window.addEventListener('click',()=>{
-    if (search_res.innerHTML == '') return
+window.addEventListener('click',(ev)=>{
+    if (search_res.innerHTML == '' || ev.target == search_res || ev.target == book_search ) return
     search_res.innerHTML = ''
 });
 
 book_search.addEventListener('input',async ()=>{
+    await search()
+});
+
+
+book_search.addEventListener('click',async ()=>{
+    await search()
+});
+
+async function search(){
     
     let search_str = book_search.value
 
@@ -210,14 +216,13 @@ book_search.addEventListener('input',async ()=>{
             "click",()=>book_page(child)
         )
     });
-});
+}
 
 function book_page(el){
     location = `../book?id=${el.dataset.id}`
 }
 
 // ####################
-
 let logout = document.querySelector('#logout')
 
 logout.addEventListener('click',async ()=>{
@@ -226,7 +231,7 @@ logout.addEventListener('click',async ()=>{
         method:"post",
         body:""
     })
-
+                  
     data = await data.text()
     location = data
 })
