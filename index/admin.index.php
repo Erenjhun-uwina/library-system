@@ -85,16 +85,15 @@ $view = new AdminView;
 
 
     <!-- hidden sections -->
-
-    <section id="change_pass" class="regis_form_con" >
+    <section id="change_pass" class="regis_form_con">
         <form>
-            <span><?php echo $view->Username($_SESSION['id']) ?></span><br>
-            <input type="text" placeholder="Old password" name="old_pass" required><br>
+            <span><?php echo $view->username($_SESSION['id']) ?></span><br>
+            <input type="password" placeholder="Old password" name="old_pass" required><br>
             <input type="password" placeholder="New password" name="new_pass" required><br>
-            <input type="password" placeholder="Confirm password" name="pass" required><br>
+            <input type="password" placeholder="Confirm password" name="confirm_pass" required><br>
             <button type="submit">Update</button>
         </form>
-    </section>     
+    </section>  
 
     <section id="staff_regis" class="regis_form_con">
         <form >

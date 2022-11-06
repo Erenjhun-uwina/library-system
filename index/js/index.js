@@ -218,7 +218,7 @@ function book_page(el){
     location = `../book?id=${el.dataset.id}`
 }
 
-// ####################
+// ######## logout ############
 let logout = document.querySelector('#logout')
 
 logout.addEventListener('click',async ()=>{

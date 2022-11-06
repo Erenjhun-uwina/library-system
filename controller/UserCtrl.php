@@ -64,8 +64,6 @@ class UserCtrl extends Model
             $field = array_shift($args);
             $val = $args;
             
-            echo $field;
-
             $query = $this->conn->prepare("UPDATE `users` SET $field WHERE `Id` =? ");
 
             $query->bind_param(str_repeat('s', count($val)), ...$val);

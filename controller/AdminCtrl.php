@@ -56,25 +56,27 @@ class AdminCtrl extends Model
 
    
 
-    public function update(string $uname, string $pword)
+    public function update()
     {
         try {
             $this->open();
-            $query = $this->conn->prepare("
-            UPDATE `admins` SET `username`=?,`password`=?, WHERE 1 "); 
 
-            $query->bind_param("ss",$uname, $pword);
-            $query->execute();
-    
-            $this->kill();
+
+            $args = func_get_args();
            
-        } catch (Exception $err) {
+            $field = array_shift($args);
+            $val = $args;
+            
+            $query = $this->conn->prepare("UPDATE `admins` SET $field WHERE `Id` =? ");
 
+            $query->bind_param(str_repeat('s', count($val)), ...$val);
+            $query->execute();
+            $this->kill();
+        } catch (Exception $err) {
             $this->kill();
             throw $err;
         }
     }
-
     // public function delete($id)
     // {
     //     try {

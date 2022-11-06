@@ -42,9 +42,11 @@ function get_pass()
     $result = $ctrl->select_data($real_user."=?",$uname);
 
 
+    $user_info = $result->fetch_assoc();
 
-    if (gettype($result) != "null") {
-        $user_info = $result->fetch_assoc();
+
+    if (gettype($user_info) != "NULL") {
+       
         $id = $user_info['Id'];
         return $user_info['Password'];
     }

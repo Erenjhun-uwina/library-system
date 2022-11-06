@@ -7,7 +7,10 @@ if (!isset($_SESSION['acc_type'])) {
     $_SESSION['acc_type'] = "";
 }
 
-if(!isset($_SESSION['id']) or !($_SESSION['acc_type'] == "staff")) header('location:../login/staff.login.php');
+if (!isset($_SESSION['id']) or !($_SESSION['acc_type'] == "staff")) header('location:../login/staff.login.php');
+
+require_once('../view/StaffView.class.php');
+$view = new StaffView;
 
 ?>
 
@@ -20,17 +23,31 @@ if(!isset($_SESSION['id']) or !($_SESSION['acc_type'] == "staff")) header('locat
     <title>Page title</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="./js/index.js" defer></script>
+    <script src="./js/change_pass.js" defer></script>
 </head>
 
 <body>
     <nav id="top_nav">
+
         <div id="search_con">
-            <input type="text" placeholder="search">
+            <input id="book_search" type="text" placeholder="search" name="book_search">
+
+            <div id="search_res">
+
+            </div>
         </div>
+
+
         <p>School logo</p>
         <p class="nav_button"><i class="fa-regular fa-calendar"></i></p>
         <p class="nav_button"><i class="fa-regular fa-envelope"></i></p>
-        <p class="nav_button"><i class="fa-solid fa-ellipsis-vertical"></i></p>
+        <p id="menu" class="nav_button"><i class="fa-solid fa-ellipsis-vertical"></i>
+        <div id="menu_opt_con">
+            <p id="about_us">about us</p>
+            <p id="logout">logout</p>
+            <p id="update_pass">update password</p>
+        </div>
+        </p>
     </nav>
     <nav id="side_nav">
         <div><span>Staff</span></div>
@@ -71,7 +88,16 @@ if(!isset($_SESSION['id']) or !($_SESSION['acc_type'] == "staff")) header('locat
     </div>
 
     <!-- hidden sections -->
-    
+    <section id="change_pass" class="regis_form_con">
+        <form>
+            <span><?php echo $view->username($_SESSION['id']) ?></span><br>
+            <input type="password" placeholder="Old password" name="old_pass" required><br>
+            <input type="password" placeholder="New password" name="new_pass" required><br>
+            <input type="password" placeholder="Confirm password" name="confirm_pass" required><br>
+            <button type="submit">Update</button>
+        </form>
+    </section>
+
     <section id="user_regis" class="regis_form_con">
         <form class="regis_form">
             <h1>User Registration</h1>
@@ -89,13 +115,13 @@ if(!isset($_SESSION['id']) or !($_SESSION['acc_type'] == "staff")) header('locat
     <section id="book_regis" class="regis_form_con">
         <form class="regis_form">
             <h1>Add Books</h1>
-            <hr>            
+            <hr>
             <input type="text" name="title" placeholder="Title">
             <input type="text" name="author" placeholder="Author"><br>
             <input type="text" name="date_release" placeholder="Date release(yyyy-mm-dd)">
             <input type="text" name="genre" placeholder="Genre"><br>
-            <label for ="cover_img" >cover image</label>
-            <input type="file" name="cover_img"  accept="image/*"><br>
+            <label for="cover_img">cover image</label>
+            <input type="file" name="cover_img" accept="image/*"><br>
             <input type="text" name="publisher" placeholder="Publisher">
             <input type="text" name="language" placeholder="Language"><br>
             <Button type="submit">Create</Button>

@@ -10,13 +10,11 @@ class StaffView extends StaffCtrl{
         
     }
 
-    public  function username($id)
+    public function username($id)
     {
 
         $staff  = $this->select_data("Id = ?",$id)->fetch_assoc();
-        echo $staff['Usernane'];
-
-
+        echo $staff['Username'];
     }
 
     public function select_data($where,$val){

@@ -10,7 +10,6 @@ if (!isset($_SESSION['acc_type'])) {
 if (!isset($_SESSION['id']) or !($_SESSION['acc_type'] == "user")) header('location:../login/');
 
 require_once("../view/UserView.class.php");
-
 $view = new UserView;
 
 
@@ -26,7 +25,7 @@ $view = new UserView;
     <title>Page title</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="./js/index.js" defer></script>
-
+    <script src="./js/change_pass.js" defer></script>
 </head>
 
 <body>
@@ -115,6 +114,23 @@ $view = new UserView;
         </div>
 
     </div>
+
+    <!-- hidden forms -->
+
+    <section class="regis_form_con">
+        
+    </section>
+    
+    <section id="change_pass" class="regis_form_con" >
+        <form>
+            <span><?php echo $view->student_no($_SESSION['id']) ?></span><br>
+            <input type="password" placeholder="Old password" name="old_pass" required><br>
+            <input type="password" placeholder="New password" name="new_pass" required><br>
+            <input type="password" placeholder="Confirm password" name="confirm_pass" required><br>
+            <button type="submit">Update</button>
+        </form>
+    </section>     
+
 </body>
 
 </html>
