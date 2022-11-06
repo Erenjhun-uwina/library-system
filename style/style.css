@@ -200,7 +200,6 @@ button {
     width: 5rem;
     height: 2rem;
     margin: 1rem;
-
 }
 
 button:hover {
@@ -217,11 +216,21 @@ form h1 {
 hr {
     margin-bottom: 1rem;
 }
-#menu{
-    position:relative;
-}
+
 
 #menu_opt_con{
+    top: 4.5rem;
+    right: .5rem;
+    width: 7rem;
+    z-index: 3;
     position: absolute;
+    background: #7e4733;
+}
+
+
+#menu_opt_con p{
+    font-size: .9rem;
+    margin: .2rem 0;
+    padding: .3rem .2rem;
     background:white;
 }

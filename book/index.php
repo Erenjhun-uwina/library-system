@@ -13,12 +13,10 @@
  <section id="book_review">
  <img src="" alt="">
  <h1>Title</h1>
- <h2>Details</h2>
+ <h4>Details</h4>
  </section>
 
  
 
-
-   
 </body>
 </html>
