@@ -5,7 +5,8 @@
 }
 
 body {
-    background: linear-gradient(#dbcdb2,#7e4733);
+    background: linear-gradient(#dbcdb2, #7e4733);
+    min-height: 100vh;
 }
 
 #top_nav {
@@ -19,22 +20,43 @@ body {
     margin: .5rem;
 }
 
-#search_con{
-   /* background: red; */
+#search_con {
+    /* background: red; */
     margin: auto;
-    border-radius: 100px;
-    overflow: hidden;
     height: 2.5rem;
     width: 35rem;
+    position: relative;
+    justify-content: center;
 }
 
 #search_con input {
-    height: 100%;
     width: 100%;
+    height: 100%;
     border: none;
     outline: none;
+    border-radius: 100px;
     font-size: 1rem;
     padding-left: .5rem;
+}
+
+#search_res {
+    position: absolute;
+    background: #dbcdb2;
+    z-index: 3;
+    width: 93%;
+    left: 0%;
+    right: 0%;
+    margin: auto;
+}
+
+#search_res p {
+    background: #fbf5f5;
+    margin: .3rem 0;
+    padding: .5rem;
+    color: #322f2e;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .nav_button {
@@ -60,15 +82,15 @@ body {
 }
 
 
-#side_nav div{
+#side_nav div {
     background-color: #4c4745;
     border-radius: 5px;
     color: white;
     text-align: center;
     margin: .5rem;
-    padding: 1rem;
+    padding:.5rem;
     width: 10rem;
-    
+
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
@@ -77,25 +99,24 @@ body {
 }
 
 
-
-#side_nav div:first-child{
-    background-color:brown;
-    font-size:1.5rem;
+#side_nav div:first-child {
+    background-color: brown;
+    font-size: 1.4rem;
     user-select: auto;
 }
 
 
 
-.card_con{
+.card_con {
     gap: 1rem;
     display: flex;
     margin: 1.5rem;
     height: 13rem;
-       
+
 }
 
-.card{
-    
+.card {
+
     background: #322f2e;
     backdrop-filter: blur(20px);
     border-radius: 5px;
@@ -105,41 +126,43 @@ body {
     overflow: hidden;
 }
 
-.card::after{
+.card::after {
 
     content: "";
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(186, 21, 21, 0.5) var(--bg) center no-repeat ;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(186, 21, 21, 0.5) var(--bg) center no-repeat;
     filter: blur(2px);
-    background-size:cover ;
+    background-size: cover;
     z-index: -1;
-    background-blend-mode:darken;
+    background-blend-mode: darken;
 }
 
 
-.card img{
+.card img {
     width: 100%;
     height: 100%;
     object-fit: contain;
     user-select: none;
 }
 
-.regis_form_con{
+.regis_form_con {
 
     width: 100vw;
     height: 100vh;
     background-color: #4d4440ac;
     position: fixed;
     top: 0;
-    opacity:0;
+    opacity: 0;
     transition: opacity .5s;
     display: none;
-    
+
 }
 
-.regis_form{
+.regis_form {
     user-select: none;
     background: white;
     padding: 1rem;
@@ -149,22 +172,25 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
+
 .regis_form input {
     width: 12rem;
     height: 2rem;
-    margin:.3rem;
+    margin: .3rem;
     border-radius: 3px;
     padding: .3rem;
     border: 1px solid #4c4745;
 }
+
 .regis_form input:hover {
     background-color: rgb(236, 236, 236);
     border: 1px solid #3f3c3a;
     outline: none;
-    
+
 }
+
 button {
     background-color: #4c4745;
     color: white;
@@ -174,12 +200,13 @@ button {
     width: 5rem;
     height: 2rem;
     margin: 1rem;
-    
+
 }
 
 button:hover {
     background-color: #322f2e;
 }
+
 .regis_form h1 {
     padding: 1rem;
     color: #322f2e;

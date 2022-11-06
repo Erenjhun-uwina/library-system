@@ -8,14 +8,16 @@ require_once("../model/Model.class.php");
 
 class AdminCtrl extends Model
 {
-
-    public function select_data($field,$val){
+    public function select_data(String $where,$val){
         try{
             $this->open();
 
-            $query = "SELECT * FROM `admins` WHERE $field = ?";
+            $val = (gettype($val)=="array")?$val:array($val);
+
+            $query = "SELECT * FROM `admins` WHERE $where";
             $stmt = $this->conn->prepare($query);
-            $stmt->bind_param('s',$val);
+            
+            $stmt->bind_param(str_repeat('s',count($val)),...$val);
             $stmt->execute();           
 
             $result = $stmt->get_result();

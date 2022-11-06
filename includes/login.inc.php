@@ -12,21 +12,25 @@ $uname = $_POST['user'];
 $pass = $_POST['pass'];
 $acc_type = $_POST['acc_type'];
 $ctrl = create_ctrl($acc_type);
-$id = null;
 
+$user_info;
 
 echo check_pass();
 
 
 function check_pass()
 {
-    global $pass,$id,$acc_type;
+    global $pass, $acc_type, $user_info;
     $real_pass = get_pass();
 
     if (strcmp($real_pass, $pass) == 0) {
-        $_SESSION['id'] = $id;
-        $_SESSION['acc_type'] = rtrim($acc_type,'s');
+        $_SESSION['id'] = $user_info['Id'];
+        $_SESSION['acc_type'] = rtrim($acc_type, 's');
 
+        if ($acc_type == "users") {
+            $_SESSION['Fn'] = $user_info['FN'];
+            $_SESSION['Ln'] = $user_info['LN'];
+        }
         return "success";
     }
     return "failed";
@@ -34,17 +38,19 @@ function check_pass()
 
 function get_pass()
 {
-    global $ctrl, $uname, $acc_type,$id;
+    global $ctrl, $uname, $acc_type, $id, $user_info;
 
     $real_user = 'Username';
     if ($acc_type == "users") $real_user = 'Student_no';
 
     $result = $ctrl->select_data($real_user, $uname);
-    
-    if(gettype($result) != "null"){
-        $result = $result->fetch_assoc();
-        $id = $result['Id'];
-        return $result['Password'];
+
+
+
+    if (gettype($result) != "null") {
+        $user_info = $result->fetch_assoc();
+        $id = $user_info['Id'];
+        return $user_info['Password'];
     }
     return false;
 }

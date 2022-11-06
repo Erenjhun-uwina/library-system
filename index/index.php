@@ -7,7 +7,13 @@ if (!isset($_SESSION['acc_type'])) {
     $_SESSION['acc_type'] = "";
 }
 
-if(!isset($_SESSION['id']) or !($_SESSION['acc_type'] == "user")) header('location:../login/');
+if (!isset($_SESSION['id']) or !($_SESSION['acc_type'] == "user")) header('location:../login/');
+
+require_once("../view/UserView.class.php");
+
+$view = new UserView;
+
+
 
 ?>
 
@@ -25,9 +31,16 @@ if(!isset($_SESSION['id']) or !($_SESSION['acc_type'] == "user")) header('locati
 
 <body>
     <nav id="top_nav">
+
         <div id="search_con">
-            <input type="text" placeholder="search">
+            <input id="book_search" type="text" placeholder="search" name="book_search">
+
+            <div id="search_res">
+
+            </div>
         </div>
+
+
         <p>School logo</p>
         <p class="nav_button"><i class="fa-regular fa-calendar"></i></p>
         <p class="nav_button"><i class="fa-regular fa-envelope"></i></p>
@@ -35,7 +48,9 @@ if(!isset($_SESSION['id']) or !($_SESSION['acc_type'] == "user")) header('locati
     </nav>
 
     <nav id="side_nav">
-        <div><span>User</span></div>
+        <div>
+            <span><?php echo $view->full_name($_SESSION['id'])?></span>
+        </div>
     </nav>
 
     <div id="recommended_container" class="card_con">
