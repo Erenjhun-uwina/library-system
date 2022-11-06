@@ -4,7 +4,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
-require_once("../controller/UserCtrl.php");
+require_once("../view/UserView.class.php");
 require_once("../controller/StaffCtrl.php");
 require_once("../controller/AdminCtrl.php");
 
@@ -43,7 +43,7 @@ function get_pass()
     $real_user = 'Username';
     if ($acc_type == "users") $real_user = 'Student_no';
 
-    $result = $ctrl->select_data($real_user, $uname);
+    $result = $ctrl->select_data($real_user."=?",$uname);
 
 
 
@@ -57,7 +57,7 @@ function get_pass()
 
 function create_ctrl(string $acc_type)
 {
-    if (strcmp($acc_type, "users") == 0) return new UserCtrl;
+    if (strcmp($acc_type, "users") == 0) return new UserView;
     if (strcmp($acc_type, "staffs") == 0) return new StaffCtrl;
     return new AdminCtrl;
 }
