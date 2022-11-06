@@ -174,7 +174,6 @@ cards.forEach(card => {
 });
 
 // #########################
-
 let book_search = document.querySelector('#book_search')
 let search_res = document.querySelector('#search_res')
 
@@ -203,11 +202,9 @@ book_search.addEventListener('input',async ()=>{
         }
     )
 
-    data = await data.text()
-    search_res.innerHTML = data
+    data = await data.text();
+    search_res.innerHTML = data;
     
-    console.log(search_res.children);
-
     [...search_res.children].forEach((child)=>{
         child.addEventListener(
             "click",()=>book_page(child)
@@ -215,8 +212,21 @@ book_search.addEventListener('input',async ()=>{
     });
 });
 
-
 function book_page(el){
-    
     location = `../book?id=${el.dataset.id}`
 }
+
+// ####################
+
+let logout = document.querySelector('#logout')
+
+logout.addEventListener('click',async ()=>{
+
+    let data = await fetch('../includes/logout.inc.php',{
+        method:"post",
+        body:""
+    })
+
+    data = await data.text()
+    location = data
+})

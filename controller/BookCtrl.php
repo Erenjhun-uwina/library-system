@@ -4,8 +4,7 @@ include_once("../model/Model.class.php");
 
 class BookCtrl extends Model
 {   
- 
-
+      
     public function select_data(String $where,$val){
         try{
             $this->open();

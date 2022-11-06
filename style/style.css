@@ -217,3 +217,11 @@ button:hover {
 hr {
     margin-bottom: 1rem;
 }
+#menu{
+    position:relative;
+}
+
+#menu_opt_con{
+    position: absolute;
+    background:white;
+}

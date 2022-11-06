@@ -53,20 +53,23 @@ class UserCtrl extends Model
 
    
 
-    public function update(string $FN, string $LN, string $Student_no, string $Pass, string $Grade_sec, string $Email, $Contact_no, $id)
+    public function update()
     {
         try {
             $this->open();
+
+
+            $args = func_get_args();
+            $field = array_pop($args);
+            $val = $args;
+
             $query = $this->conn->prepare("
-            UPDATE `users` SET `FN`=?,`LN`=?,`Student_no`=?,`Password`=?,`Grade_sec`=?,`Email`=?,`Contact_no`=? WHERE `Id` =? "); 
-
-            $query->bind_param("ssssssss", $FN, $LN, $Student_no, $Pass, $Grade_sec, $Email, $Contact_no, $id);
+            UPDATE `users` SET $field WHERE `Id` =? "); 
+            
+            $query->bind_param("s"+str_repeat('s',count($val)),...$val);
             $query->execute();
-    
             $this->kill();
-           
         } catch (Exception $err) {
-
             $this->kill();
             throw $err;
         }

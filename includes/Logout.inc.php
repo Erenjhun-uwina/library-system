@@ -10,7 +10,8 @@ $_SESSION['acc_type'] =null;
 
 $acctype = ($acctype == "user")?"index.php":"$acctype.login.php";
 
-header("location:../login/$acctype");
+
+echo "../login/$acctype";
 
 
 

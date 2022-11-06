@@ -44,12 +44,18 @@ $view = new UserView;
         <p>School logo</p>
         <p class="nav_button"><i class="fa-regular fa-calendar"></i></p>
         <p class="nav_button"><i class="fa-regular fa-envelope"></i></p>
-        <p class="nav_button"><i class="fa-solid fa-ellipsis-vertical"></i></p>
+        <p id="menu" class="nav_button"><i class="fa-solid fa-ellipsis-vertical"></i>
+            <div id="menu_opt_con">
+                <p id="about_us">about us</p>
+                <p id="logout">logout</p>
+                <p id="update_pass">update password</p>
+            </div>
+        </p>
     </nav>
 
     <nav id="side_nav">
         <div>
-            <span><?php echo $view->full_name($_SESSION['id'])?></span>
+            <span><?php echo $view->full_name($_SESSION['id']) ?></span>
         </div>
     </nav>
 

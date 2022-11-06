@@ -27,10 +27,6 @@ function check_pass()
         $_SESSION['id'] = $user_info['Id'];
         $_SESSION['acc_type'] = rtrim($acc_type, 's');
 
-        if ($acc_type == "users") {
-            $_SESSION['Fn'] = $user_info['FN'];
-            $_SESSION['Ln'] = $user_info['LN'];
-        }
         return "success";
     }
     return "failed";
