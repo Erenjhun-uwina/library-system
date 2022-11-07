@@ -167,7 +167,7 @@ body {
 
 }
 
-form {
+form,.pop_card {
     user-select: none;
     background: white;
     padding: 1rem;
@@ -243,4 +243,26 @@ hr {
 #menu_opt_con p:hover {
     background-color: rgb(236, 236, 236);
 
+}
+
+#book_main_details {
+    background-color: white;
+    color: rgba(0, 0, 0, 0.423);
+    width: 100%;
+    text-align: left;
+}
+
+#book_prev_title{
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+#book_main_button{
+    background-color: white;
+    margin-top: 1.5rem;
+}
+
+#book_related{
+    background-color: white;
+    text-align: left;
 }

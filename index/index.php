@@ -44,11 +44,11 @@ $view = new UserView;
         <p class="nav_button"><i class="fa-regular fa-calendar"></i></p>
         <p class="nav_button"><i class="fa-regular fa-envelope"></i></p>
         <p id="menu" class="nav_button"><i class="fa-solid fa-ellipsis-vertical"></i>
-            <div id="menu_opt_con">
-                <p id="about_us">about us</p>
-                <p id="logout">logout</p>
-                <p id="update_pass">update password</p>
-            </div>
+        <div id="menu_opt_con">
+            <p id="about_us">about us</p>
+            <p id="logout">logout</p>
+            <p id="update_pass">update password</p>
+        </div>
         </p>
     </nav>
 
@@ -117,11 +117,50 @@ $view = new UserView;
 
     <!-- hidden forms -->
 
-    <section class="regis_form_con">
-        
+    <section id="book_preview" class="regis_form_con">
+
+        <form>
+            <section class="card_con">
+                <div class="card">
+                    <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1574739767l/48946657.jpg">
+                </div>
+                <div id="book_main_details">
+                    <p id="book_prev_title"> sample title </p>
+                    <p>(author)</p><br>
+                    <p>summary</p>
+                </div>
+                <div id="book_main_button">
+                <button>burrow</button>
+                </div>
+            </section>
+            <hr>
+                <div id="book_related">
+                    <p>Related books...</p><br>
+                </div>
+
+
+            <section id="book_recomendation" class="card_con">        
+                <div class="card">
+                    <img src="https://i.pinimg.com/736x/4f/12/d9/4f12d987e42457b542f023f8131229fc.jpg">
+                </div>
+                <div class="card">
+                    <img src="https://i.pinimg.com/736x/4f/12/d9/4f12d987e42457b542f023f8131229fc.jpg">
+                </div>
+                <div class="card">
+                    <img src="https://i.pinimg.com/736x/4f/12/d9/4f12d987e42457b542f023f8131229fc.jpg">
+                </div>
+                <div class="card">
+                    <img src="https://i.pinimg.com/736x/4f/12/d9/4f12d987e42457b542f023f8131229fc.jpg">
+                </div>
+            </section>
+        </form>
+
+
+
+
     </section>
-    
-    <section id="change_pass" class="regis_form_con" >
+
+    <section id="change_pass" class="regis_form_con">
         <form>
             <span><?php echo $view->student_no($_SESSION['id']) ?></span><br>
             <input type="password" placeholder="Old password" name="old_pass" required><br>
@@ -129,7 +168,7 @@ $view = new UserView;
             <input type="password" placeholder="Confirm password" name="confirm_pass" required><br>
             <button type="submit">Update</button>
         </form>
-    </section>     
+    </section>
 
 </body>
 

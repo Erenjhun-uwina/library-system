@@ -150,6 +150,7 @@ function display_none(elem) {
 }
 
 function hide_form(elem, ev) {
+    
     if (ev.target != elem) return
     elem.style.opacity = "0"
 }
@@ -214,8 +215,20 @@ async function search(){
     });
 }
 
+
+let book_prev_con = document.querySelector('#book_preview')
+
 function book_page(el){
-    location = `../book?id=${el.dataset.id}`
+    show_form(book_prev_con)
+}
+
+
+book_prev_con.addEventListener("transitionend", () => {
+    display_none(book_form_con)
+})
+
+book_prev_con.onclick = (ev) => {
+    hide_form(book_form_con, ev)
 }
 
 // ######## logout ############
